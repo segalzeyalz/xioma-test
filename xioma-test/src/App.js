@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+  import React, { Component } from 'react';
 import Buttons from './buttons/Buttons'
 import Businessparetners from './businesspartners'
 import './App.css';
