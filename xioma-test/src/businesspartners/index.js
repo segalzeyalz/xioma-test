@@ -11,7 +11,7 @@ class Businessparetners extends Component {
   render() {
       //Here is the businessparetners
     return (
-      <div className="buttons">
+      <div className="business">
          {this.props.businessparetners}
       </div>
     );
