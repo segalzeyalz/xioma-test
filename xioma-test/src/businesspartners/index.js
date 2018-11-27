@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BusinessPartnerCard from './businessPartnerCard';
 
 class Businessparetners extends Component {
   constructor(props){
@@ -6,7 +7,6 @@ class Businessparetners extends Component {
       this.state = {
     }
   }
-
 
   render() {
       //Here is the businessparetners
