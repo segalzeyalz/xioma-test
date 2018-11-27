@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './style.css'
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/styles';
+
 class Buttons extends Component {
   constructor(props){
     super(props);
@@ -11,11 +13,11 @@ class Buttons extends Component {
       //Here is the Buttons
     return (
       <div className="buttons">
-        <div className="button" onClick={this.props.login}>Sign In</div>
-        <div className="button" onClick={this.props.signOut}>Sign Out</div>
-        <div className="button">Sign Up</div>
-        {this.props.logged && <div> <div className="button">Add New Business Partner</div>
-        <div className="button">Show All </div></div>} 
+        <Button className="button" onClick={this.props.login}>Sign In</Button>
+        <Button className="button" onClick={this.props.signOut}>Sign Out</Button>
+        <Button className="button">Sign Up</Button>
+        {this.props.logged && <div> <Button className="button">Add New Business Partner</Button>
+        <Button className="button">Show All </Button></div>} 
         </div>
     );
   }

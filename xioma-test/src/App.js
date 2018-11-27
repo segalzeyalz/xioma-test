@@ -8,7 +8,29 @@ class App extends Component {
     super(props);
       this.state = {
         logged: false,
-        businessparetners:["lalala", "momo"]
+        businessparetners:[{
+          CardCode:"CardCode1",
+          CardName:"CardName1",
+          CardType:"CardType1",
+          GroupCode:"GroupCode1",
+          Address :"Address1",
+          ZipCode:"ZipCode1",
+          MailAddress:"MailAddress1",
+          MailZipCode:"MailZipCode1",
+          Phone1:"Phone1",
+          Phone2:"Phone21"
+        },{
+          CardCode:"CardCode2",
+          CardName:"CardName2",
+          CardType:"CardType2",
+          GroupCode:"GroupCode2",
+          Address :"Address2",
+          ZipCode:"ZipCode2",
+          MailAddress:"MailAddress2",
+          MailZipCode:"MailZipCode2",
+          Phone1:"Phone2",
+          Phone2:"Phone22"
+      }]
     }
     this.login = this.login.bind(this)
     this.signOut = this.signOut.bind(this)
