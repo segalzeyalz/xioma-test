@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Buttons from './buttons/Buttons'
 import Businessparetners from './businesspartners'
+import Login from './Login'
+import Header from './Header'
 import './App.css';
 
 class App extends Component {
@@ -8,33 +10,17 @@ class App extends Component {
     super(props);
       this.state = {
         logged: false,
-        businessparetners:[{
-          CardCode:"CardCode1",
-          CardName:"CardName1",
-          CardType:"CardType1",
-          GroupCode:"GroupCode1",
-          Address :"Address1",
-          ZipCode:"ZipCode1",
-          MailAddress:"MailAddress1",
-          MailZipCode:"MailZipCode1",
-          Phone1:"Phone1",
-          Phone2:"Phone21"
-        },{
-          CardCode:"CardCode2",
-          CardName:"CardName2",
-          CardType:"CardType2",
-          GroupCode:"GroupCode2",
-          Address :"Address2",
-          ZipCode:"ZipCode2",
-          MailAddress:"MailAddress2",
-          MailZipCode:"MailZipCode2",
-          Phone1:"Phone2",
-          Phone2:"Phone22"
-      }]
+        businessparetners:[]
     }
     this.login = this.login.bind(this)
     this.signOut = this.signOut.bind(this)
   }
+  componentDidMount() {
+    fetch('http://localhost:3000/businessparetners')
+      .then(response => response.json())
+      .then(data => this.setState({ businessparetners:data }));
+  }
+
   login(){
     this.setState({logged:true})
   }
@@ -42,10 +28,14 @@ class App extends Component {
     this.setState({logged:false})
   }
   render() {
+    let {logged, businessparetners} = this.state;
     return (
       <div className="App">
+        <Header/>
+        <Login login={this.login} logged={logged}/>
         <Buttons login={this.login} signOut={this.signOut} logged={this.state.logged}/>
-        <Businessparetners businessparetners={this.state.businessparetners}/>
+        <Businessparetners logged={logged} businessparetners={businessparetners}/>
+        
       </div>
     );
   }

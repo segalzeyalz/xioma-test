@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import ListItem from '@material-ui/core/ListItem';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
 import BusinessPartnerCard from './businessPartnerCard';
 
 class Businessparetners extends Component {
@@ -10,7 +14,7 @@ class Businessparetners extends Component {
   }
 
   render() {
-    var List = this.props.businessparetners.map((partner) =><ul>
+    var List = this.props.businessparetners.map((partner) =>
       <BusinessPartnerCard
       CardCode={partner.CardCode}
       CardName={partner.CardName}
@@ -22,14 +26,28 @@ class Businessparetners extends Component {
       MailZipCode={partner.MailZipCode}
       Phone1={partner.Phone1}
       Phone2={partner.Phone2}
-    />
-      
-    </ul>)
+    />)
       //Here is the businessparetners
     return (
-      <ListItem>
-         {List}
-      </ListItem>
+      <div>
+      {this.props.logged && <Table>
+        <TableRow>
+            <TableCell>CardName</TableCell>
+            <TableCell>CardCode</TableCell>
+            <TableCell>CardType</TableCell>
+            <TableCell>GroupCode</TableCell>
+            <TableCell>Address</TableCell>
+            <TableCell>ZipCode</TableCell>
+            <TableCell>MailAddress</TableCell>
+            <TableCell>MailZipCode</TableCell>
+            <TableCell>Phone1</TableCell>
+            <TableCell>Phone2</TableCell>
+          </TableRow>
+          <TableBody>
+            {List}
+          </TableBody>
+      </Table>}
+      </div>
     );
   }
 }
