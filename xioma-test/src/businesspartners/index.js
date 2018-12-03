@@ -9,13 +9,11 @@ import BusinessPartnerCard from './businessPartnerCard';
 class Businessparetners extends Component {
   constructor(props){
     super(props);
-      this.state = {
-    }
   }
 
   render() {
     var List = this.props.businessparetners.map((partner) =>
-      <BusinessPartnerCard
+      <BusinessPartnerCard updateData={this.props.updateData}
       CardCode={partner.CardCode}
       CardName={partner.CardName}
       CardType={partner.CardType}
@@ -30,7 +28,7 @@ class Businessparetners extends Component {
       //Here is the businessparetners
     return (
       <div>
-      {this.props.logged && <Table>
+      {this.props.logged && this.props.show &&<div><Table>
         <TableRow>
             <TableCell>CardName</TableCell>
             <TableCell>CardCode</TableCell>
@@ -46,7 +44,9 @@ class Businessparetners extends Component {
           <TableBody>
             {List}
           </TableBody>
-      </Table>}
+      </Table>
+      <a onClick={()=>{this.props.updatePage(this.props.page+1)}}>next</a> <span />
+      <a onClick={()=>{this.props.updatePage(this.props.page-1)}}>before</a></div>}
       </div>
     );
   }
